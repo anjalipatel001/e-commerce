@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vivan Mobile Accessories</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #444;
+      padding: 10px;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #search-bar {
+      margin: 20px auto;
+      text-align: center;
+    }
+    #search-bar input {
+      width: 300px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #888;
+    }
+    .offers {
+      background: #ffd700;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+    .product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  justify-items: center;
+  padding: 0 20px;
+    }
+    .category {
+      text-align: center;
+      cursor: pointer;
+    }
+    .category img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .category:hover img {
+      transform: scale(1.05);
+    }
+    .category span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .social-links a {
+      margin: 0 10px;
+      color: white;
+    }
+
+   
+/* View Cart Button (Top right fixed) */
+.view-cart-btn {
+  position: fixed;  /* Fixed to the screen */
+  right: 20px;      /* 20px from the right side */
+  top: 20px;        /* 20px from the top */
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  z-index: 1000;    /* Ensure it's always on top */
+}
+
+.view-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .social-links a {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links a:hover {
+    background-color: #555;
+  }
+
+  .social-links i {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .banner-carousel {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgb(92, 95, 192);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.banner-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.banner-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  flex-shrink: 0;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+  </style>
+
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  
+</head>
+<body>
+
+<header style="background-color: #000; color: white; padding: 10px 20px;">
+    <div style="position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+  
+      <!-- Logo (absolute left corner) -->
+      <div style="position: absolute; left: 20px;">
+        <img src="images/vivan-logo.png" alt="Vivan Logo" style="height: 150px;">
+      </div>
+
+      <!-- Center Content -->
+      <div style="text-align: center;">
+        <h1 style="margin: 0; font-size: 1.8rem;">Vivan Mobile Accessories</h1>
+        <p style="margin: 2px 0; font-size: 0.9rem;">
+          Contact: +91 9238072826 | Email: vivanwholesalehub@gmail.com
+        </p>
+        <p style="margin: 2px 0; font-size: 0.9rem;">
+          Address: Muktnagar, Padmanabhapur, Durg, Chhattisgarh 491001
+        </p>
+      </div>
+
+         <!-- Add this to the 'header' section of your main page -->
+<div class="view-cart">
+  <a href="cart.html" class="view-cart-btn">🛒 Cart</a>
+</div>
+</div>
+  </header>
+  
+
+  <nav>
+    <a onclick="scrollToSection('home')">Home</a>
+    <a onclick="scrollToSection('about')">About Us</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
+    <a onclick="scrollToSection('support')">Help & Support</a>
+    <a href="profile.html" id="myProfileBtn" style="display: none;">My Profile</a>
+  </nav>
+
+
+  <!-- Add this inside your main.html where you want the banner -->
+  <div class="banner-carousel">
+    <button class="arrow left" onclick="slideLeft()">&#10094;</button>
+    <div class="banner-slider" id="bannerSlider">
+      <img src="images/banner1.jpg" alt="Slide 1">
+      <img src="images/banner2.jpg" alt="Slide 2">
+      <img src="images/banner3.jpg" alt="Slide 3">
+      <img src="images/banner4.jpg" alt="Slide 3">
+    </div>
+    <button class="arrow right" onclick="slideRight()">&#10095;</button>
+  </div>
+
+  <div id="search-bar">
+    <input type="text" placeholder="Search products..." onkeyup="searchProduct(this.value)">
+  </div>
+
+  
+  <h2 class="main-heading">Explore Our Products</h2>
+  
+
+  <div class="product-grid">
+     <!-- Row 1 -->
+    <div class="category" onclick="location.href='earphones.html'">
+      <img src="images/earphone-icon.png" alt="Earphones">
+      <span>Earphones</span>
+    </div>
+    <div class="category" onclick="location.href='datacables.html'">
+      <img src="images/datacable-icon.png" alt="Data Cables">
+      <span>Data Cables</span>
+    </div>
+    <div class="category" onclick="location.href='chargers.html'">
+      <img src="images/charger-icon.png" alt="charger">
+      <span>Chargers</span>
+    </div>  
+    <div class="category" onclick="location.href='neckbands.html'">
+      <img src="images/neckband-icon.png" alt="neckband">
+      <span>Neckbands</span>
+    </div>
+    <div class="category" onclick="location.href='earbuds.html'">
+      <img src="images/earbud-icon.png" alt="earbud">
+      <span>Earbuds</span>
+    </div>
+
+     <!-- Row 2 -->
+    <div class="category" onclick="location.href='speakers.html'">
+      <img src="images/speaker-icon.png" alt="speaker">
+      <span>Speaker</span>
+    </div>
+    <div class="category" onclick="location.href='smartwatchs.html'">
+      <img src="images/smartwatch-icon.png" alt="smartwatch">
+      <span>Smart Watches</span>
+    </div>
+    <div class="category" onclick="location.href='drone.html'">
+      <img src="images/drone-icon.png" alt="drone">
+      <span>Drones</span>
+    </div>
+    <div class="category" onclick="location.href='powerbanks.html'">
+      <img src="images/powerbank-icon.png" alt="powerbank">
+      <span>Powerbanks</span>
+    </div>
+    <div class="category" onclick="location.href='headphone.html'">
+      <img src="images/headphone-icon.png" alt="headphone">
+      <span>Headphones</span>
+    </div>
+
+     <!-- Row 3 -->
+    <div class="category" onclick="location.href='keypad.html'">
+      <img src="images/keypad-icon.png" alt="keypadmobile">
+      <span>Keypad Mobiles</span>
+    </div>
+    <div class="category" onclick="location.href='pendrive.html'">
+      <img src="images/pendrive-icon.png" alt="pendrive">
+      <span>Pendrives</span>
+    </div>
+    <div class="category" onclick="location.href='projector.html'">
+      <img src="images/projector-icon.png" alt="projector">
+      <span>Projectors</span>
+    </div>
+    <div class="category" onclick="location.href='torch&lights.html'">
+      <img src="images/light-icon.png" alt="light">
+      <span>torch & lights</span>
+    </div>
+    <div class="category" onclick="location.href='stationary.html'">
+      <img src="images/stationary-icon.png" alt="stationaryproduct">
+      <span>Stationary Productss</span>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="category" onclick="location.href='otg.html'">
+      <img src="images/otg-icon.png" alt="otg">
+      <span>OTG</span>
+    </div>
+    <div class="category" onclick="location.href='extansion.html'">
+      <img src="images/extansion-icon.png" alt="extansion">
+      <span>Extansion Box</span>
+    </div>
+    <div class="category" onclick="location.href='bottle.html'">
+      <img src="images/bottle-icon.png" alt="bottle">
+      <span>Water Bottles</span>
+    </div>      
+    <div class="category" onclick="location.href='trimmer.html'">
+      <img src="images/trimmer-icon.png" alt="trimmer">
+      <span>Trimmers</span>
+    </div>
+    <div class="category" onclick="location.href='smart.html'">
+      <img src="images/other-icon.png" alt="smartgadgets">
+      <span>Smart Gadgets</span>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="category" onclick="location.href='watches.html'">
+      <img src="images/watches-icon.png" alt="watches">
+      <span>Watches</span>
+    </div> 
+    <div class="category" onclick="location.href='camera.html'">
+      <img src="images/camera-icon.png" alt="Camera">
+      <span>Camera</span>
+    </div> 
+    <div class="category" onclick="location.href='other.html'">
+      <img src="images/otheritems-icon.png" alt="other">
+      <span>Other Items</span>
+    </div>
+  </div>
+
+  <section id="about" style="padding:20px;">
+    <h2>About Us</h2>
+    <p>We are wholesale suppliers of mobile accessories based in Durg, Chhattisgarh. We offer competitive prices and bulk orders. Your satisfaction is our priority!</p>
+  </section>
+  
+
+  <section id="contact" style="padding:20px;">
+    <h2>Contact Us</h2>
+    <p>📍 Address: Muktnagar, Padmanabhapur, Durg, Chhattisgarh 491001</p>
+    <p>📞 Phone: +91 9238072826</p>
+    <p>✉️ Email: vivanwholesalehub@gmail.com</p>
+  </section>
+
+  <section id="support" style="padding:20px;">
+    <h2>Help & Support</h2>
+    <p>For order issues or product details, feel free to contact us via WhatsApp or Email.</p>
+  </section>
+
+  <section style="padding:20px; text-align:center;">
+    <h2>Happy Customers 😊</h2>
+    <p>Over 500+ satisfied customers across India!</p>
+  </section>
+
+  <footer >
+
+
+    <div style="flex: 1; text-align: center; margin-top: 20px;">
+      <button onclick="downloadCatalog()" style="
+          background-color: #28a745;
+          color: white;
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+      " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
+        📥 Download Catalog
+      </button>
+    </div>
+  
+
+    <p>&copy; 2025 Vivan Mobile Accessories</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/vivanwholesalehub?igsh=MTk4OXBhMnJqdHpweQ==" target="_blank">
+        <i class="fab fa-instagram"></i>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/share/1De37ea4Hh/" target="_blank">
+        <i class="fab fa-facebook"></i>
+        Facebook
+      </a>
+      <a href="https://t.me/vivanwholesalehub" target="_blank">
+        <i class="fab fa-telegram"></i>
+        Telegram
+      </a>
+    </div>
+
+  </footer>
+
+  <a class="whatsapp-button" href="https://wa.me/919238072826" target="_blank">
+    <img src="images/whattsapp-icon.png" alt="whatsapp" style="width: 40px; height: 40px;">
+  </a>
+  
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function searchProduct(value) {
+      alert("Search functionality works globally. Please visit specific category pages to view products.");
+    }
+  </script>
+
+  <script>
+    functio
+function searchProduct(value) {                                                                        
+  value = value.toLowerCase();
+  const categories = document.querySelectorAll(".category");
+
+  categories.forEach((item) => {
+    const text = item.innerText.toLowerCase();
+    if (text.includes(value)) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+} 
+function downloadCatalog() {
+    alert("Please wait...we prepared your catalog pdf"); 
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = 'catalog.html';
+    document.body.appendChild(iframe);
+}
+
+
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBabPzOV4UPOOXDytsD8qoPIco-1I1qf-g",
+    authDomain: "vivan-mobile-accessories.firebaseapp.com",
+    projectId: "vivan-mobile-accessories",
+    storageBucket: "vivan-mobile-accessories.appspot.com",
+    messagingSenderId: "75513255666",
+    appId: "1:75513255666:web:2b881ddf55b1a1deb9e26b",
+    measurementId: "G-26MJ4H9LZZ"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Wait for DOM to load
+  window.addEventListener("load", () => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById("myProfileBtn").style.display = "inline-block";
+      }
+    });
+  });
+</script>
+
+<script>
+  let currentIndex = 0;
+
+  function slideLeft() {
+    const slider = document.getElementById('bannerSlider');
+    const totalSlides = slider.children.length;
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  function slideRight() {
+    const slider = document.getElementById('bannerSlider');
+    const totalSlides = slider.children.length;
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const slider = document.getElementById('bannerSlider');
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Auto slide every 3 seconds
+  setInterval(slideRight, 2500);
+</script>
+
+
+
+</body>
+</html>
